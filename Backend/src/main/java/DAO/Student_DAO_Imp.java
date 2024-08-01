@@ -1,12 +1,14 @@
 package DAO;
 
 
-import jakarta.persistence.Query;
-import jakarta.websocket.Session;
+
 import model.Student;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 import java.util.List;
 

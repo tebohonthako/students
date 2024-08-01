@@ -21,11 +21,11 @@ import java.util.Properties;
 @EnableTransactionManagement
 @EnableAutoConfiguration(exclude = {HibernateJpaAutoConfiguration.class})
 @ComponentScans(value = { @ComponentScan("boot.entry"),
-    @ComponentScans("Model"),
-    @ComponentScans("Controller"),
-    @ComponentScans("DAO"),
-    @ComponentScans("Miscellaneous"),
-    @ComponentScans("Service")})
+        @ComponentScan("Model"),
+        @ComponentScan("Controller"),
+        @ComponentScan("DAO"),
+        @ComponentScan("Miscallaneous"),
+        @ComponentScan("Service")})
 
 public class Config {
     @Value("${db.driver}")
@@ -48,7 +48,6 @@ public class Config {
 
     @Value("${hibernate_HBM2DDL-AUTO}")
     private String HIBERNATE_HBM2DDL_AUTO;
-
 
     @Value("${entitymanager.packagesToScan}")
     private String ENTITYMANAGER_PACKAGES_TO_SCAN;
@@ -79,7 +78,7 @@ public class Config {
     @Bean
     public HibernateTransactionManager transactionManager() {
         HibernateTransactionManager txManager = new HibernateTransactionManager();
-        txManager.setSessionFactory(sessionFactory().getObject());
+        txManager.setSessionFactory(sessionFactoryBean().getObject());
         return txManager;
     }
 
